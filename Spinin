@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using System;
+
+public class Kata
+{
+  public static string SpinWords(string sentence)
+  {
+                string[] arrayofString = sentence.Split(' ');
+                string[] arrayofStringsReversed = new string[arrayofString.Length];
+
+                string answer;
+
+                for (int i = 0; i < arrayofString.Length;  i++)
+                {
+                    if (arrayofString[i].Length < 5)
+                    {
+                        arrayofStringsReversed[i] = arrayofString[i];
+                    }
+                    else
+                    {
+                        string wordtobeReversed = arrayofString[i].ToString();
+
+                        string ReversedWord = ReverseString(wordtobeReversed);
+
+                        arrayofStringsReversed[i] = ReversedWord;
+
+
+                    }
+                }
+                answer = string.Join(" ", arrayofStringsReversed);
+                return answer;
+
+            
+            }
+            public static string ReverseString(string word)
+            {
+                char[] wordToArrayOfChars = word.ToCharArray();
+                string reversed = null;
+                for (int b = wordToArrayOfChars.Length-1; b > -1; b--)
+                {
+                    reversed += wordToArrayOfChars[b];
+                }
+                return reversed;
+  }
+}
